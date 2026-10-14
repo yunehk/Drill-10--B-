@@ -9,9 +9,10 @@ class Ball_2():
         self.x, self.y = random.randint(0, 800), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('ball21x21.png')
+
     def update(self):
         self.frame = (self.frame + 1) % 1
-        self.y += 8
+        self.y += random.randint(1,16)
 
     def draw(self):
         self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
@@ -21,9 +22,10 @@ class Ball_1():
         self.x, self.y = random.randint(0, 800), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('ball41x41.png')
+        
     def update(self):
         self.frame = (self.frame + 1) % 1
-        self.y += 3
+        self.y += random.randint(1,16)
 
     def draw(self):
         self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
@@ -82,6 +84,7 @@ def reset_world():
 def update_world():
     for o in world:
         o.update()
+
 
 def render_world():
     clear_canvas()
