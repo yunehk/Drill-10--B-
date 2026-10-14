@@ -4,13 +4,13 @@ import random
 
 # Game object class here
 
-class Ball():
+class Ball_1():
     def __init__(self):
         self.x, self.y = random.randint(100, 700), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('ball41x41.png')
     def update(self):
-        self.frame = (self.frame + 1) % 8
+        self.frame = (self.frame + 1) % 5
         self.y += 3
 
     def draw(self):
@@ -50,11 +50,11 @@ def reset_world():
     global team
     global team2
     team = [Boy() for i in range(10)]
-    team2 = [Ball() for i in range(20)]
+    team2 = [Ball_1() for i in range(20)]
     world += team
     world += team2
 
-    ball = Ball()
+    ball = Ball_1()
     world.append(ball)
 
 def update_world():
