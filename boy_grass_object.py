@@ -6,11 +6,11 @@ import random
 
 class Ball_2():
     def __init__(self):
-        self.x, self.y = random.randint(100, 700), 90
+        self.x, self.y = random.randint(0, 800), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('ball21x21.png')
     def update(self):
-        self.frame = (self.frame + 1) % 8
+        self.frame = (self.frame + 1) % 1
         self.y += 8
 
     def draw(self):
@@ -18,11 +18,11 @@ class Ball_2():
 
 class Ball_1():
     def __init__(self):
-        self.x, self.y = random.randint(100, 700), 90
+        self.x, self.y = random.randint(0, 800), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('ball41x41.png')
     def update(self):
-        self.frame = (self.frame + 1) % 8
+        self.frame = (self.frame + 1) % 1
         self.y += 3
 
     def draw(self):
