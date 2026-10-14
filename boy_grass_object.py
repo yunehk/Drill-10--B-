@@ -10,8 +10,8 @@ class Ball_2():
         self.frame = random.randint(0, 7)
         self.image = load_image('ball21x21.png')
     def update(self):
-        self.frame = (self.frame + 1) % 5
-        self.y += 3
+        self.frame = (self.frame + 1) % 8
+        self.y += 8
 
     def draw(self):
         self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
@@ -22,7 +22,7 @@ class Ball_1():
         self.frame = random.randint(0, 7)
         self.image = load_image('ball41x41.png')
     def update(self):
-        self.frame = (self.frame + 1) % 5
+        self.frame = (self.frame + 1) % 8
         self.y += 3
 
     def draw(self):
@@ -60,11 +60,10 @@ def reset_world():
     global grass
     grass = Grass()
     world.append(grass)
-    
     global team
     global team2
     global team3
-
+    
     team = [Boy() for i in range(10)]
     team2 = [Ball_1() for i in range(10)]
     team3 = [Ball_2() for i in range(10)]
