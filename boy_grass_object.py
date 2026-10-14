@@ -4,21 +4,8 @@ import random
 
 # Game object class here
 
-class Zombie:
-    def __init__(self):
-        self.x, self.y = 100, 170
-        self.frame = 0
-        self.image = load_image('zombie_run_animation.png')
-    
-    def update(self):
-        self.frame = (self.frame + 1) % 10
-        self.x += 5
-    
-    def draw(self):
-        frame_width = self.image.w // 10
-        frame_height = self.image.h
-        self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height,
-                            self.x, self.y, frame_width // 2, frame_height // 2)
+class Ball():
+    pass
 
 class Grass:
     def __init__(self):
@@ -53,9 +40,6 @@ def reset_world():
     global team
     team = [Boy() for i in range(10)]
     world += team
-
-    zombie = Zombie()
-    world.append(zombie)
 
 def update_world():
     for o in world:
