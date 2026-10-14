@@ -6,12 +6,12 @@ import random
 
 class Ball():
     def __init__(self):
-        self.x, self.y = 90, random.randint(100, 700), 
+        self.x, self.y = random.randint(100, 700), random.randint(100, 700)
         self.frame = random.randint(0, 7)
         self.image = load_image('ball41x41.png')
     def update(self):
         self.frame = (self.frame + 1) % 8
-        self.y += 5
+        self.y += 3
 
     def draw(self):
         self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
