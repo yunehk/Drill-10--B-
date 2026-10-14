@@ -4,6 +4,18 @@ import random
 
 # Game object class here
 
+class Ball_2():
+    def __init__(self):
+        self.x, self.y = random.randint(100, 700), 90
+        self.frame = random.randint(0, 7)
+        self.image = load_image('ball21x21.png')
+    def update(self):
+        self.frame = (self.frame + 1) % 5
+        self.y += 3
+
+    def draw(self):
+        self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
+
 class Ball_1():
     def __init__(self):
         self.x, self.y = random.randint(100, 700), 90
@@ -40,22 +52,33 @@ class Boy:
 def reset_world():
     global running
     global world
-    global ball
+    global ball_1
+    global ball_2
 
     running = True
     world = []
     global grass
     grass = Grass()
     world.append(grass)
+    
     global team
     global team2
+    global team3
+
     team = [Boy() for i in range(10)]
-    team2 = [Ball_1() for i in range(20)]
+    team2 = [Ball_1() for i in range(10)]
+    team3 = [Ball_2() for i in range(10)]
+
     world += team
     world += team2
+    world += team3
 
-    ball = Ball_1()
-    world.append(ball)
+    ball_1 = Ball_1()
+    ball_2 = Ball_2()
+
+    world.append(ball_1)
+    world.append(ball_2)
+
 
 def update_world():
     for o in world:
